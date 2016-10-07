@@ -5,6 +5,8 @@
 
 Parse Dashboard is a standalone dashboard for managing your Parse apps. You can use it to manage your [Parse Server](https://github.com/ParsePlatform/parse-server) apps and your apps that are running on [Parse.com](https://Parse.com).
 
+**Note** This is SCPR's clone of Parse Dashboard. To quickly get set up, deploy, or stop the Elastic Beanstalk environment hosting our dashboard, jump to [Elastic Beanstalk Setup](#elastic-beanstalk)
+
 * [Getting Started](#getting-started)
 * [Local Installation](#local-installation)
   * [Configuring Parse Dashboard](#configuring-parse-dashboard)
@@ -289,6 +291,32 @@ docker run -d -p 80:8080 -v host/path/to/config.json:/src/Parse-Dashboard/parse-
 ```
 
 If you are not familiar with Docker, ``--port 8080`` will be passed in as argument to the entrypoint to form the full command ``npm start -- --port 8080``. The application will start at port 8080 inside the container and port ``8080`` will be mounted to port ``80`` on your host machine.
+
+# Elastic Beanstalk
+
+SCPR has the dashboard hosted in an Elastic Beanstalk.  To administer that environment, follow these instructions:
+
+Install the Elastic Beanstalk CLI on your machine if you don't have one already.
+
+`brew install awsebcli`
+
+The cli requires you to have your aws credentials already, so if you haven't installed the aws cli either, then install and [configure that](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html).
+
+Clone this repo.  Install all the dependencies:
+
+`npm install`
+
+To create it as a new environment to beanstalk:
+
+`eb create`
+
+To re-deploy any changes:
+
+`eb deploy`
+
+To stop and terminate the environment (for example, when the drive is over and membership no longer needs access to the dashboard):
+
+`eb terminate`
 
 # Contributing
 
