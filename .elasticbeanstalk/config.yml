@@ -1,0 +1,10 @@
+branch-defaults:
+  master:
+    environment: parse-dashboard-dev
+global:
+  application_name: parse-dashboard
+  default_ec2_keyname: aws-eb
+  default_platform: Node.js
+  default_region: us-west-2
+  profile: null
+  sc: git

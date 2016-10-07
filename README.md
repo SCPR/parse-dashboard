@@ -310,6 +310,11 @@ To create it as a new environment to beanstalk:
 
 `eb create`
 
+In the event of creating the environment from scratch, you will also need to add parse environment variables.  This can be done
+after the create step:
+
+`eb setenv PARSE_DASHBOARD_APP_NAME="SCPR Parse" PARSE_DASHBOARD_APP_ID="<FIND IN PARSE-SERVER-BEANSTALK>" PARSE_DASHBOARD_MASTER_KEY="<FIND IN PARSE-SERVER-BEANSTALK>" PARSE_DASHBOARD_USER_ID="<FIND WHERE WE STORE LOGIN INFO>" PARSE_DASHBOARD_USER_PASSWORD="<FIND WHERE WE STORE LOGIN INFO>" PARSE_DASHBOARD_SERVER_URL=http://parse.scprdev.org/`
+
 To re-deploy any changes:
 
 `eb deploy`
